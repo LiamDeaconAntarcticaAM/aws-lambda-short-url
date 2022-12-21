@@ -3,9 +3,7 @@ resource "aws_acm_certificate" "short_url_domain_certificate" {
   # provider          = aws.cloudfront_acm
   domain_name       = var.short_url_domain
   validation_method = "DNS"
-  tags = {
-    Project = "short_urls"
-  }
+  tags = local.tags
 }
 
 resource "aws_acm_certificate_validation" "short_url_domain_cert" {

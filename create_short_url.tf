@@ -24,7 +24,5 @@ resource "aws_lambda_function" "short_url_create" {
       BUCKET_NAME = "${var.short_url_domain}"
     }
   }
-  tags = {
-    Project = "short_urls"
-  }
+  tags = local.tags
 }

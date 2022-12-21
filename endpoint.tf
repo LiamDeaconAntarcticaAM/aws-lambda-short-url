@@ -100,7 +100,5 @@ resource "aws_cloudfront_distribution" "short_urls_cloudfront" {
     ssl_support_method             = "sni-only"
     minimum_protocol_version       = "TLSv1.1_2016"
   }
-  tags = {
-    Project = "short_urls"
-  }
+  tags = local.tags
 }

@@ -25,7 +25,5 @@ resource "aws_lambda_function" "short_url_delete" {
       BUCKET_NAME = "${var.short_url_domain}"
     }
   }
-  tags = {
-    Project = "short_urls"
-  }
+  tags = local.tags
 }
