@@ -1,7 +1,7 @@
 data "archive_file" "create_shorturl" {
   type        = "zip"
-  source_dir  = "lambda_functions/create_shorturl"
-  output_path = "lambda_functions/create_shorturl.zip"
+  source_dir  = "${path.module}/lambda_functions/create_shorturl"
+  output_path = "${path.module}/lambda_functions/create_shorturl.zip"
 }
 
 resource "aws_lambda_permission" "short_url_lambda_permssion_short_url_create" {
