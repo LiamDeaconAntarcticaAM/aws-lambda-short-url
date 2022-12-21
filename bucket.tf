@@ -1,6 +1,5 @@
 resource "aws_s3_bucket" "short_urls_bucket" {
   bucket = var.short_url_domain
-  acl    = "public-read"
 
   tags = local.tags
 }
@@ -16,4 +15,9 @@ resource "aws_s3_bucket_website_configuration" "short_urls_bucket_website_config
     key = "error.html"
   }
 
+}
+
+resource "aws_s3_bucket_acl" "short_urls_bucket_acl" {
+  bucket = aws_s3_bucket.short_urls_bucket.id
+  acl    = "public-read"
 }
