@@ -15,7 +15,7 @@ resource "aws_route53_record" "short_url_domain_alias" {
 
 resource "aws_cloudfront_distribution" "short_urls_cloudfront" {
   depends_on = [aws_lambda_function.apply_security_headers]
-  provider   = aws.cloudfront_acm
+  # provider   = aws.cloudfront_acm
   enabled    = true
   aliases    = [var.short_url_domain]
   origin {

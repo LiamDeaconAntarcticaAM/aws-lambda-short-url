@@ -1,6 +1,6 @@
 
 resource "aws_acm_certificate" "short_url_domain_certificate" {
-  provider          = aws.cloudfront_acm
+  # provider          = aws.cloudfront_acm
   domain_name       = var.short_url_domain
   validation_method = "DNS"
   tags = {
@@ -9,7 +9,7 @@ resource "aws_acm_certificate" "short_url_domain_certificate" {
 }
 
 resource "aws_acm_certificate_validation" "short_url_domain_cert" {
-  provider                = aws.cloudfront_acm
+  # provider                = aws.cloudfront_acm
   certificate_arn         = aws_acm_certificate.short_url_domain_certificate.arn
   validation_record_fqdns = [for record in aws_route53_record.short_url_domain_cert_validation : record.fqdn]
 }
