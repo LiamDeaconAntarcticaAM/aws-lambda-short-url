@@ -1,11 +1,14 @@
 terraform {
   required_providers {
-    archive = {
-      source = "hashicorp/archive"
-    }
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
+      version = ">= 2.7.0"
+      alias  = "cloudfront_acm"
     }
+    archive = {
+        source = "hashicorp/archive"
+    }
+
   }
   required_version = ">= 0.13"
 }
